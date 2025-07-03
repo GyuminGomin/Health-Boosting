@@ -5,7 +5,7 @@
 1. git submodule add <원격저장소> <폴더이름>
 2. git submodule add <원격저장소> <폴더이름>
 3. git commit
-   > 4. git push
+   > 4. git push origin main
    >    > 1. \- branch - 가 설정되어 있을 경우 git push
    >    > 2. git push --set-upstream origin main
 
