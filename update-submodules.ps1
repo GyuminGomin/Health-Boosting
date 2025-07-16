@@ -36,7 +36,7 @@ foreach ($submodule in $submodules) {
     $updated = $true
   } else {
     Write-Host "$submodule is already up to date."
-    Set-Location $PWD
+    Set-Location $rootPath
   }
 }
 

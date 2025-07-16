@@ -166,3 +166,26 @@ else
   echo "No updates detected"
 fi
 ```
+
+## 문제 해결 1
+
+```
+발생 문제 : 백엔드 깃의 이름을 변경하면서 remote 경로가 로컬저장소에서 잘못저장되어 있어
+실수로 잘못된 경로에 push -> .git을 삭제 후 다시 원격저장소를 잡아줌
+- 싱크 문제가 있어 push --force로 맞춰줌
+- 그래서 루트 저장소의 백엔드 서브모듈의 히스토리 충돌 발생
+해결 방법 :
+
+1. 서브모듈 backend 폴더로 이동
+2. git status로 HEAD detached 상태인지, main인지 확인
+3. 강제 리셋
+$ git fetch origin
+$ git checkout main
+$ git reset --hard origin/main
+-> 로컬 커밋 기록은 전부 사라짐
+4. 루트 저장소 폴더로 이동
+$ cd..
+$ git add backend
+$ git commit -m "Fix Notes"
+$ git push origin main
+```
